@@ -1,0 +1,868 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Kübra & Sabir 💗</title>
+
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+  font-family:Arial, sans-serif;
+  color:white;
+  min-height:100vh;
+  overflow-x:hidden;
+  background:
+    radial-gradient(circle at 10% 10%,#ff75c8 0%,transparent 30%),
+    radial-gradient(circle at 90% 80%,#8248e8 0%,transparent 35%),
+    linear-gradient(145deg,#160728,#45136b,#b83e91);
+}
+
+/* KALPLER */
+
+.hearts{
+  position:fixed;
+  inset:0;
+  overflow:hidden;
+  pointer-events:none;
+  z-index:0;
+}
+
+.heart{
+  position:absolute;
+  bottom:-60px;
+  animation:up 9s linear infinite;
+  opacity:.7;
+  font-size:25px;
+}
+
+@keyframes up{
+  0%{
+    transform:translateY(0) rotate(0deg);
+    opacity:0;
+  }
+  15%{opacity:.8;}
+  100%{
+    transform:translateY(-110vh) rotate(35deg);
+    opacity:0;
+  }
+}
+
+/* MENÜ */
+
+nav{
+  position:sticky;
+  top:10px;
+  z-index:20;
+  width:94%;
+  max-width:1100px;
+  margin:10px auto;
+  padding:15px;
+  border-radius:25px;
+  background:rgba(25,5,50,.72);
+  backdrop-filter:blur(15px);
+  border:1px solid rgba(255,255,255,.2);
+  box-shadow:0 10px 30px rgba(0,0,0,.2);
+}
+
+.logo{
+  text-align:center;
+  font-size:21px;
+  font-weight:bold;
+  margin-bottom:10px;
+}
+
+.menu{
+  display:flex;
+  justify-content:center;
+  gap:8px;
+  overflow-x:auto;
+}
+
+.menu a{
+  color:white;
+  text-decoration:none;
+  padding:9px 13px;
+  border-radius:18px;
+  white-space:nowrap;
+  font-size:14px;
+  transition:.25s;
+}
+
+.menu a:hover{
+  background:rgba(255,255,255,.18);
+  transform:translateY(-2px);
+}
+
+/* GENEL */
+
+main{
+  position:relative;
+  z-index:1;
+}
+
+section{
+  width:94%;
+  max-width:1100px;
+  margin:auto;
+  padding:85px 0;
+}
+
+/* HERO */
+
+.hero{
+  min-height:650px;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:40px;
+  align-items:center;
+}
+
+.small-title{
+  color:#ffb9e3;
+  font-weight:bold;
+  font-size:18px;
+}
+
+h1{
+  font-size:clamp(52px,9vw,100px);
+  line-height:.95;
+  margin:18px 0;
+}
+
+h1 span{
+  color:#ff9bd5;
+  text-shadow:0 0 30px #ff5cbb;
+}
+
+.hero-text{
+  color:#f9eaff;
+  font-size:18px;
+  line-height:1.8;
+  max-width:600px;
+}
+
+.signature{
+  color:#ffacd9;
+  font-size:24px;
+  margin:22px 0;
+  font-family:cursive;
+}
+
+/* BUTON */
+
+button{
+  border:0;
+  cursor:pointer;
+  color:white;
+  font-weight:bold;
+  font-size:16px;
+  padding:15px 23px;
+  border-radius:50px;
+  background:linear-gradient(135deg,#ff55ad,#9849ed);
+  box-shadow:0 8px 25px rgba(255,70,170,.4);
+  transition:.2s;
+}
+
+button:hover{
+  transform:translateY(-3px);
+}
+
+button:active{
+  transform:scale(.94);
+}
+
+/* LOVE BOX */
+
+.love-box{
+  padding:35px;
+  text-align:center;
+  border-radius:35px;
+  background:rgba(255,255,255,.1);
+  border:1px solid rgba(255,180,230,.5);
+  backdrop-filter:blur(15px);
+  box-shadow:0 0 55px rgba(255,80,190,.3);
+}
+
+.love-box h2{
+  margin-bottom:15px;
+}
+
+.big-heart{
+  font-size:145px;
+  filter:drop-shadow(0 0 22px #ff55b7);
+  animation:beat 1.3s infinite;
+}
+
+@keyframes beat{
+  50%{transform:scale(1.1);}
+}
+
+.percentage{
+  font-size:45px;
+  font-weight:bold;
+  margin-top:-100px;
+  margin-bottom:65px;
+}
+
+.bar{
+  width:100%;
+  height:17px;
+  background:rgba(255,255,255,.15);
+  border-radius:20px;
+  overflow:hidden;
+  margin:20px 0;
+}
+
+.bar-fill{
+  width:100%;
+  height:100%;
+  background:linear-gradient(90deg,#ff65bb,#bd68ff,#fff);
+}
+
+/* BAŞLIKLAR */
+
+.section-title{
+  text-align:center;
+  font-size:42px;
+  margin-bottom:12px;
+}
+
+.subtitle{
+  text-align:center;
+  color:#f3d8ff;
+  margin-bottom:35px;
+}
+
+/* TARİH */
+
+.date-card{
+  max-width:700px;
+  margin:auto;
+  text-align:center;
+  padding:45px 25px;
+  border-radius:35px;
+  background:linear-gradient(145deg,rgba(255,255,255,.16),rgba(255,255,255,.06));
+  border:1px solid rgba(255,255,255,.2);
+  backdrop-filter:blur(15px);
+  box-shadow:0 20px 50px rgba(0,0,0,.2);
+}
+
+.date-heart{
+  font-size:65px;
+  margin-bottom:15px;
+}
+
+.date{
+  font-size:52px;
+  font-weight:bold;
+  color:#ffb3df;
+  text-shadow:0 0 20px #ff4fb6;
+  margin:15px 0;
+}
+
+.date-card p{
+  font-size:18px;
+  line-height:1.7;
+  color:#ffeaff;
+}
+
+/* KARTLAR */
+
+.cards{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:18px;
+}
+
+.card{
+  background:white;
+  color:#612879;
+  border-radius:25px;
+  padding:27px 20px;
+  text-align:center;
+  min-height:200px;
+  box-shadow:0 12px 35px rgba(0,0,0,.25);
+  transition:.25s;
+}
+
+.card:hover{
+  transform:translateY(-8px);
+}
+
+.card-icon{
+  font-size:42px;
+  margin-bottom:13px;
+}
+
+.card h3{
+  margin-bottom:10px;
+}
+
+.card p{
+  line-height:1.55;
+}
+
+/* MESAJ */
+
+.message{
+  max-width:850px;
+  margin:auto;
+  padding:40px;
+  text-align:center;
+  color:#652e7e;
+  background:linear-gradient(135deg,#fff,#ffe6f6);
+  border-radius:32px;
+  line-height:1.9;
+  box-shadow:0 15px 40px rgba(0,0,0,.25);
+}
+
+.message h2{
+  font-size:30px;
+  margin-bottom:18px;
+}
+
+/* ANILAR */
+
+.gallery{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:18px;
+}
+
+.photo{
+  min-height:240px;
+  display:grid;
+  place-items:center;
+  border-radius:27px;
+  font-size:70px;
+  background:linear-gradient(145deg,#ff91ca,#8d54e8);
+  border:3px solid rgba(255,255,255,.5);
+  transition:.25s;
+}
+
+.photo:hover{
+  transform:scale(1.03) rotate(1deg);
+}
+
+/* SÜRPRİZ */
+
+.surprise{
+  max-width:850px;
+  margin:40px auto 80px;
+  padding:45px 25px;
+  text-align:center;
+  border-radius:35px;
+  background:rgba(255,255,255,.1);
+  border:1px solid rgba(255,255,255,.25);
+  backdrop-filter:blur(15px);
+}
+
+.surprise h2{
+  font-size:35px;
+  margin-bottom:15px;
+}
+
+.hidden-message{
+  display:none;
+  margin-top:25px;
+  padding:25px;
+  border-radius:25px;
+  background:linear-gradient(135deg,#fff,#ffe4f5);
+  color:#682d7c;
+  line-height:1.8;
+  animation:appear .5s ease;
+}
+
+@keyframes appear{
+  from{
+    opacity:0;
+    transform:translateY(15px);
+  }
+  to{
+    opacity:1;
+    transform:translateY(0);
+  }
+}
+
+/* FOOTER */
+
+footer{
+  position:relative;
+  z-index:1;
+  text-align:center;
+  padding:45px 20px;
+  color:#f8d9ff;
+  border-top:1px solid rgba(255,255,255,.15);
+}
+
+/* MOBİL */
+
+@media(max-width:800px){
+
+  .hero{
+    grid-template-columns:1fr;
+    min-height:auto;
+    padding-top:50px;
+  }
+
+  .hero-left{
+    text-align:center;
+  }
+
+  .hero-text{
+    margin:auto;
+  }
+
+  .cards{
+    grid-template-columns:1fr 1fr;
+  }
+
+  .gallery{
+    grid-template-columns:1fr;
+  }
+
+  .photo{
+    min-height:200px;
+  }
+
+  .section-title{
+    font-size:34px;
+  }
+
+  .date{
+    font-size:40px;
+  }
+}
+
+@media(max-width:500px){
+
+  section{
+    padding:65px 0;
+  }
+
+  .cards{
+    grid-template-columns:1fr;
+  }
+
+  .menu{
+    justify-content:flex-start;
+  }
+
+  .love-box{
+    padding:25px 15px;
+  }
+
+  .big-heart{
+    font-size:120px;
+  }
+
+  .message{
+    padding:27px 20px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<!-- HAREKETLİ KALPLER -->
+
+<div class="hearts">
+  <div class="heart" style="left:5%;animation-delay:0s">💗</div>
+  <div class="heart" style="left:18%;animation-delay:2s">💖</div>
+  <div class="heart" style="left:31%;animation-delay:4s">💕</div>
+  <div class="heart" style="left:45%;animation-delay:1s">💗</div>
+  <div class="heart" style="left:60%;animation-delay:5s">💖</div>
+  <div class="heart" style="left:73%;animation-delay:3s">💞</div>
+  <div class="heart" style="left:87%;animation-delay:6s">💗</div>
+</div>
+
+<!-- MENÜ -->
+
+<nav>
+  <div class="logo">Kübra & Sabir 💗</div>
+
+  <div class="menu">
+    <a href="#anasayfa">Ana Sayfa</a>
+    <a href="#tarih">Bizim Tarihimiz</a>
+    <a href="#hikaye">Hikâyemiz</a>
+    <a href="#mesaj">Mesaj</a>
+    <a href="#anilar">Anılar</a>
+    <a href="#surpriz">Sürpriz 🎁</a>
+  </div>
+</nav>
+
+<main>
+
+<!-- ANA SAYFA -->
+
+<section id="anasayfa">
+
+  <div class="hero">
+
+    <div class="hero-left">
+
+      <div class="small-title">
+        Küçük bir internet köşesi, kocaman bir hikâye 💗
+      </div>
+
+      <h1>
+        Kübra<br>
+        <span>&</span> Sabir
+      </h1>
+
+      <p class="hero-text">
+        Bazı insanlar hayatımıza öylesine girmez.
+        Bir tarih olur, bir anı olur, bir gülümseme olur
+        ve zaman geçtikçe kendi küçük dünyamızı oluşturur.
+      </p>
+
+      <div class="signature">
+        İyi ki yollarımız kesişmiş. 💕
+      </div>
+
+      <button onclick="scrollToDate()">
+        Hikâyemize Git 💗
+      </button>
+
+    </div>
+
+    <div class="love-box">
+
+      <h2>Bizim sevgimizin ölçüsü?</h2>
+
+      <div class="big-heart">💗</div>
+
+      <div class="percentage">∞%</div>
+
+      <div class="bar">
+        <div class="bar-fill"></div>
+      </div>
+
+      <p>
+        Bu çubuğun sonu yok. Çünkü bazı şeylerin
+        yüzdeyle ölçülmesi mümkün değil. ✨
+      </p>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- TARİH -->
+
+<section id="tarih">
+
+  <h2 class="section-title">
+    Her şeyin başladığı gün 💗
+  </h2>
+
+  <p class="subtitle">
+    Bizim için sıradan bir tarih değil.
+  </p>
+
+  <div class="date-card">
+
+    <div class="date-heart">💞</div>
+
+    <div class="date">
+      16 TEMMUZ
+    </div>
+
+    <p>
+      Tanıştığımız gün.<br>
+      Belki o gün bunun ileride ne kadar özel
+      bir anıya dönüşeceğini bilmiyorduk.
+      Ama şimdi bu tarih bizim hikâyemizin
+      en güzel sayfalarından biri.
+    </p>
+
+    <br>
+
+    <strong>
+      “Ve hikâyemiz burada başladı...” 🌸
+    </strong>
+
+  </div>
+
+</section>
+
+
+<!-- HİKAYE -->
+
+<section id="hikaye">
+
+  <h2 class="section-title">
+    Bizim Hikâyemiz 🌷
+  </h2>
+
+  <p class="subtitle">
+    Küçük anlar, büyük hatıralara dönüşür.
+  </p>
+
+  <div class="cards">
+
+    <div class="card">
+      <div class="card-icon">🌸</div>
+      <h3>İlk Karşılaşma</h3>
+      <p>
+        16 Temmuz...
+        Hikâyemizin ilk sayfasının açıldığı gün.
+      </p>
+    </div>
+
+    <div class="card">
+      <div class="card-icon">💬</div>
+      <h3>Konuşmalar</h3>
+      <p>
+        Zamanla konuşmalar çoğaldı,
+        küçük sohbetler güzel anılara dönüştü.
+      </p>
+    </div>
+
+    <div class="card">
+      <div class="card-icon">😂</div>
+      <h3>Gülüşler</h3>
+      <p>
+        Birlikte güldüğümüz küçük şeyler,
+        hatırladıkça yüzümüzde gülümseme bırakıyor.
+      </p>
+    </div>
+
+    <div class="card">
+      <div class="card-icon">💗</div>
+      <h3>Biz</h3>
+      <p>
+        Ve sonunda bütün bu küçük anılar
+        “biz” diye bir hikâyeye dönüştü.
+      </p>
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- MESAJ -->
+
+<section id="mesaj">
+
+  <h2 class="section-title">
+    Sana Bir Mesaj 💌
+  </h2>
+
+  <p class="subtitle">
+    Bu bölüm sadece sana.
+  </p>
+
+  <div class="message">
+
+    <h2>Sabir'e 💗</h2>
+
+    <p>
+      Hayat bazen hiç beklemediğimiz insanları
+      hiç beklemediğimiz zamanlarda karşımıza çıkarıyor.
+      <br><br>
+
+      Bizim hikâyemizin başlangıcı da
+      <strong>16 Temmuz</strong> oldu.
+      <br><br>
+
+      Belki kocaman bir hikâyenin ilk cümlesi
+      olduğunu o anda bilmiyorduk.
+      Ama şimdi geriye dönüp baktığımda,
+      o günü iyi ki yaşamışız diyorum.
+      <br><br>
+
+      Birlikte daha nice güzel anı,
+      daha nice kahkaha ve daha nice güzel
+      gün biriktirmek dileğiyle...
+      <br><br>
+
+      <strong>
+        İyi ki varsın. 💗
+      </strong>
+    </p>
+
+  </div>
+
+</section>
+
+
+<!-- ANILAR -->
+
+<section id="anilar">
+
+  <h2 class="section-title">
+    Anılarımız 📸
+  </h2>
+
+  <p class="subtitle">
+    Buraya ileride birlikte çekildiğiniz fotoğrafları koyabiliriz. 💕
+  </p>
+
+  <div class="gallery">
+
+    <div class="photo">💗</div>
+    <div class="photo">🌸</div>
+    <div class="photo">✨</div>
+    <div class="photo">🫶</div>
+    <div class="photo">🌙</div>
+    <div class="photo">💞</div>
+
+  </div>
+
+</section>
+
+
+<!-- SÜRPRİZ -->
+
+<section id="surpriz">
+
+  <div class="surprise">
+
+    <h2>
+      Küçük Bir Sürpriz 🎁
+    </h2>
+
+    <p>
+      Buraya basınca gizli mesaj ortaya çıkacak.
+    </p>
+
+    <br>
+
+    <button onclick="showSurprise()">
+      Aç bakalım 💗
+    </button>
+
+    <div id="hiddenMessage" class="hidden-message">
+
+      <h3>🌷 Gizli Mesaj 🌷</h3>
+
+      <br>
+
+      <p>
+        Eğer buraya kadar geldiysen...
+        sana tekrar bir şey söylemek istiyorum:
+        <br><br>
+
+        <strong>
+          İyi ki 16 Temmuz'da yollarımız kesişmiş. 💗
+        </strong>
+
+        <br><br>
+
+        Umarım bu siteye zamanla daha fazla anı,
+        daha fazla fotoğraf ve daha fazla güzel
+        hikâye ekleriz.
+        <br><br>
+
+        Çünkü bu daha sadece başlangıç. ✨
+      </p>
+
+    </div>
+
+  </div>
+
+</section>
+
+</main>
+
+
+<footer>
+
+  <p>
+    Kübra & Sabir 💗
+  </p>
+
+  <br>
+
+  <p>
+    16 Temmuz'dan başlayan küçük bir hikâye... 🌙
+  </p>
+
+</footer>
+
+
+<script>
+
+function scrollToDate(){
+
+  document
+    .getElementById("tarih")
+    .scrollIntoView({
+      behavior:"smooth"
+    });
+
+}
+
+
+function showSurprise(){
+
+  const message =
+    document.getElementById("hiddenMessage");
+
+  if(message.style.display === "block"){
+
+    message.style.display = "none";
+
+  }else{
+
+    message.style.display = "block";
+
+  }
+
+}
+
+
+/* Rastgele küçük kalpler */
+
+setInterval(function(){
+
+  const heart =
+    document.createElement("div");
+
+  heart.className = "heart";
+
+  heart.innerHTML =
+    ["💗","💖","💕","💞","💓"]
+    [Math.floor(Math.random()*5)];
+
+  heart.style.left =
+    Math.random()*100 + "%";
+
+  heart.style.animationDuration =
+    (6 + Math.random()*5) + "s";
+
+  heart.style.fontSize =
+    (15 + Math.random()*25) + "px";
+
+  document
+    .querySelector(".hearts")
+    .appendChild(heart);
+
+  setTimeout(function(){
+
+    heart.remove();
+
+  },11000);
+
+},1200);
+
+</script>
+
+</body>
+</html>
