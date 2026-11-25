@@ -297,6 +297,65 @@
 
     .story-card p:last-child { margin-bottom: 0; }
 
+    .meet-story {
+      max-width: 850px;
+      margin: 0 auto;
+      padding: clamp(26px, 5vw, 44px);
+      border: 1px solid rgba(116, 59, 85, .13);
+      border-radius: 8px;
+      background: rgba(255, 253, 250, .8);
+      box-shadow: 0 14px 44px rgba(69, 42, 52, .07);
+      text-align: center;
+    }
+
+    .meet-intro {
+      max-width: 620px;
+      margin: 0 auto 28px;
+      color: var(--muted);
+    }
+
+    .meet-steps {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+      text-align: left;
+    }
+
+    .meet-step {
+      padding: 20px;
+      border: 1px solid var(--line);
+      background: #fffdfa;
+    }
+
+    .step-number {
+      display: block;
+      margin-bottom: 6px;
+      color: var(--rose);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: .16em;
+    }
+
+    .meet-step h3 {
+      margin-bottom: 4px;
+      color: var(--rose-deep);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 21px;
+    }
+
+    .meet-step p {
+      margin: 0;
+      color: var(--muted);
+    }
+
+    .meet-claim {
+      margin: 28px 0 0;
+      color: var(--rose-deep);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(25px, 4vw, 34px);
+      font-style: italic;
+    }
+
     .letter {
       max-width: 760px;
       margin: 0 auto;
@@ -455,6 +514,7 @@
       .gallery { grid-template-columns: 1fr; gap: 24px; }
       .polaroid { width: min(100%, 420px); margin-inline: auto; }
       .polaroid img { max-height: 420px; }
+      .meet-steps { grid-template-columns: 1fr; }
       .section { padding-block: 64px; }
       .section-heading { margin-bottom: 30px; }
       .story-card h2, .letter h2, .surprise-card h2 { font-size: 30px; }
@@ -473,6 +533,7 @@
     <a class="brand" href="#anasayfa">Kübra &amp; Sabir</a>
     <nav class="nav-links" aria-label="Ana menü">
       <a href="#anilar">Anılar</a>
+      <a href="#tanisma">Tanışma</a>
       <a href="#hikayemiz">Hikâyemiz</a>
       <a href="#mektup">Mektup</a>
       <a href="#surpriz">Sürpriz</a>
@@ -493,7 +554,7 @@
       </div>
       <figure class="hero-polaroid">
         <img src="assets/memory-01.webp" alt="Kübra ve Sabir birlikte açık havada" fetchpriority="high">
-        <figcaption class="handwritten">Bizim küçük dünyamız</figcaption>
+        <figcaption class="handwritten">Anıtkabir'de birlikte</figcaption>
       </figure>
     </section>
 
@@ -509,26 +570,65 @@
         <p>Küçük anlar, yıllar sonra bile yüzümüzde aynı gülümsemeyi bırakır.</p>
       </div>
       <div class="gallery">
-        <button class="polaroid" type="button" data-full="assets/memory-01.webp" data-caption="Bizim küçük dünyamız" aria-label="Fotoğrafı büyüt: Bizim küçük dünyamız">
+        <button class="polaroid" type="button" data-full="assets/memory-01.webp" data-caption="Anıtkabir'de birlikte" aria-label="Fotoğrafı büyüt: Anıtkabir'de birlikte">
           <img src="assets/memory-01.webp" alt="Kübra ve Sabir birlikte açık havada" loading="lazy" decoding="async">
-          <span class="caption">Bizim küçük dünyamız</span>
+          <span class="caption">Anıtkabir'de birlikte</span>
         </button>
-        <button class="polaroid" type="button" data-full="assets/memory-02.webp" data-caption="Yan yana, her zaman daha güzel" aria-label="Fotoğrafı büyüt: Yan yana, her zaman daha güzel">
+        <button class="polaroid" type="button" data-full="assets/memory-02.webp" data-caption="İlk biramız ve Kuğulu Park'a ilk gidişimiz" aria-label="Fotoğrafı büyüt: İlk biramız ve Kuğulu Park'a ilk gidişimiz">
           <img src="assets/memory-02.webp" alt="Kübra ve Sabir birlikte selfie çekerken" loading="lazy" decoding="async">
-          <span class="caption">Yan yana, her zaman daha güzel</span>
+          <span class="caption">İlk biramız ve Kuğulu Park'a ilk gidişimiz</span>
         </button>
-        <button class="polaroid" type="button" data-full="assets/memory-03.webp" data-caption="En sevdiğim gülüşlerden biri" aria-label="Fotoğrafı büyüt: En sevdiğim gülüşlerden biri">
-          <img src="assets/memory-03.webp" alt="Kübra ve Sabir'in yakın plan selfie fotoğrafı" loading="lazy" decoding="async">
-          <span class="caption">En sevdiğim gülüşlerden biri</span>
+        <button class="polaroid" type="button" data-full="assets/memory-03.webp" data-caption="Mayıs'taki en güzel zamanlarımızdan" aria-label="Fotoğrafı büyüt: Mayıs'taki en güzel zamanlarımızdan">
+          <img src="assets/memory-03.webp" alt="Kübra ve Sabir'in Mayıs'taki güzel anlarından biri" loading="lazy" decoding="async">
+          <span class="caption">Mayıs'taki en güzel zamanlarımızdan</span>
         </button>
-        <button class="polaroid" type="button" data-full="assets/memory-04.webp" data-caption="Birlikte geçen sıradan bir an bile özel" aria-label="Fotoğrafı büyüt: Birlikte geçen sıradan bir an bile özel">
-          <img src="assets/memory-04.webp" alt="Kübra ve Sabir'in samimi bir selfie fotoğrafı" loading="lazy" decoding="async">
-          <span class="caption">Sıradan bir an bile özel</span>
+        <button class="polaroid" type="button" data-full="assets/memory-04.webp" data-caption="Mayıs'taki en güzel zamanlarımızdan" aria-label="Fotoğrafı büyüt: Mayıs'taki en güzel zamanlarımızdan">
+          <img src="assets/memory-04.webp" alt="Kübra ve Sabir'in Mayıs'taki güzel anlarından biri" loading="lazy" decoding="async">
+          <span class="caption">Mayıs'taki en güzel zamanlarımızdan</span>
         </button>
-        <button class="polaroid" type="button" data-full="assets/memory-05.webp" data-caption="Hikâyemizden güzel bir kare" aria-label="Fotoğrafı büyüt: Hikâyemizden güzel bir kare">
-          <img src="assets/memory-05.webp" alt="Kübra ve Sabir birlikte fotoğraf çekerken" loading="lazy" decoding="async">
-          <span class="caption">Hikâyemizden güzel bir kare</span>
+        <button class="polaroid" type="button" data-full="assets/memory-05.webp" data-caption="Mayıs'taki en güzel zamanlarımızdan" aria-label="Fotoğrafı büyüt: Mayıs'taki en güzel zamanlarımızdan">
+          <img src="assets/memory-05.webp" alt="Kübra ve Sabir'in Mayıs'taki güzel anlarından biri" loading="lazy" decoding="async">
+          <span class="caption">Mayıs'taki en güzel zamanlarımızdan</span>
         </button>
+      </div>
+    </section>
+
+    <section class="section shell" id="tanisma">
+      <div class="section-heading">
+        <p class="eyebrow">Her şeyin başladığı yer</p>
+        <h2>Tanışma Hikâyemiz</h2>
+        <p>Bir Instagram isteği, ilk mesaj ve cesur bir ilk adım.</p>
+      </div>
+      <div class="meet-story">
+        <p class="meet-intro">
+          Her şey senin Instagram'dan attığın istekle başladı. Ben isteğini kabul ettim;
+          sonra ilk mesajı ben attım. İlk adımı da ben atmış oldum. Bugün geriye dönüp
+          bakınca gülümsüyorum: belki de en başından beri sana en çok ben aşıktım.
+          Hâlâ da iddiam aynı: en çok ben seviyorum. ♡
+        </p>
+        <div class="meet-steps">
+          <article class="meet-step">
+            <span class="step-number">01</span>
+            <h3>İstek</h3>
+            <p>Sen bana Instagram'dan istek attın.</p>
+          </article>
+          <article class="meet-step">
+            <span class="step-number">02</span>
+            <h3>Kabul</h3>
+            <p>Ben de isteğini kabul ettim.</p>
+          </article>
+          <article class="meet-step">
+            <span class="step-number">03</span>
+            <h3>İlk mesaj</h3>
+            <p>İlk mesajı ben attım.</p>
+          </article>
+          <article class="meet-step">
+            <span class="step-number">04</span>
+            <h3>İlk adım</h3>
+            <p>İlk adımı ben attım; iyi ki de atmışım.</p>
+          </article>
+        </div>
+        <p class="meet-claim">En çok ben seviyorum. ♡</p>
       </div>
     </section>
 
