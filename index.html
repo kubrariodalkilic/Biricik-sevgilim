@@ -207,6 +207,64 @@
       color: var(--muted);
     }
 
+    .counter-section {
+      padding: 42px 0 10px;
+    }
+
+    .counter-card {
+      max-width: 850px;
+      margin: 0 auto;
+      padding: clamp(24px, 5vw, 40px);
+      border: 1px solid rgba(116, 59, 85, .14);
+      border-radius: 10px;
+      background: rgba(244, 223, 229, .52);
+      text-align: center;
+    }
+
+    .counter-card h2 {
+      margin: 8px 0 22px;
+      color: var(--ink);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(28px, 4vw, 38px);
+      font-weight: 500;
+    }
+
+    .counter-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .counter-unit {
+      padding: 16px 8px;
+      border: 1px solid rgba(116, 59, 85, .1);
+      background: rgba(255, 253, 250, .8);
+    }
+
+    .counter-unit strong {
+      display: block;
+      color: var(--rose-deep);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(26px, 4vw, 40px);
+      font-weight: 500;
+      line-height: 1.1;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .counter-unit span {
+      color: var(--muted);
+      font-size: 12px;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+
+    .counter-note {
+      margin: 18px 0 0;
+      color: var(--rose-deep);
+      font-family: Georgia, "Times New Roman", serif;
+      font-style: italic;
+    }
+
     .section {
       padding-block: 100px;
       scroll-margin-top: 100px;
@@ -511,6 +569,7 @@
       .hero-copy { font-size: 16px; }
       .date-band { grid-template-columns: 1fr; gap: 8px; padding: 22px 4px; }
       .date-mark { font-size: 30px; }
+      .counter-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
       .gallery { grid-template-columns: 1fr; gap: 24px; }
       .polaroid { width: min(100%, 420px); margin-inline: auto; }
       .polaroid img { max-height: 420px; }
@@ -533,6 +592,7 @@
     <a class="brand" href="#anasayfa">Kübra &amp; Sabir</a>
     <nav class="nav-links" aria-label="Ana menü">
       <a href="#anilar">Anılar</a>
+      <a href="#sayac">Sayaç</a>
       <a href="#tanisma">Tanışma</a>
       <a href="#hikayemiz">Hikâyemiz</a>
       <a href="#mektup">Mektup</a>
@@ -563,6 +623,20 @@
       <p>Tanıştığımız gün. Ve hikâyemizin en güzel sayfalarından birinin başlangıcı.</p>
     </div>
 
+    <section class="counter-section shell" id="sayac" aria-labelledby="counterTitle">
+      <div class="counter-card">
+        <p class="eyebrow">15 Temmuz 2024'ten beri</p>
+        <h2 id="counterTitle">Birlikte geçen zaman</h2>
+        <div class="counter-grid" aria-live="off">
+          <div class="counter-unit"><strong id="elapsedDays">0</strong><span>Gün</span></div>
+          <div class="counter-unit"><strong id="elapsedHours">00</strong><span>Saat</span></div>
+          <div class="counter-unit"><strong id="elapsedMinutes">00</strong><span>Dakika</span></div>
+          <div class="counter-unit"><strong id="elapsedSeconds">00</strong><span>Saniye</span></div>
+        </div>
+        <p class="counter-note">Ve saymaya devam ediyor. ♡</p>
+      </div>
+    </section>
+
     <section class="section shell" id="anilar">
       <div class="section-heading">
         <p class="eyebrow">Biriktirdiğimiz güzel şeyler</p>
@@ -580,14 +654,6 @@
         </button>
         <button class="polaroid" type="button" data-full="assets/memory-03.webp" data-caption="Mayıs'taki en güzel zamanlarımızdan" aria-label="Fotoğrafı büyüt: Mayıs'taki en güzel zamanlarımızdan">
           <img src="assets/memory-03.webp" alt="Kübra ve Sabir'in Mayıs'taki güzel anlarından biri" loading="lazy" decoding="async">
-          <span class="caption">Mayıs'taki en güzel zamanlarımızdan</span>
-        </button>
-        <button class="polaroid" type="button" data-full="assets/memory-04.webp" data-caption="Mayıs'taki en güzel zamanlarımızdan" aria-label="Fotoğrafı büyüt: Mayıs'taki en güzel zamanlarımızdan">
-          <img src="assets/memory-04.webp" alt="Kübra ve Sabir'in Mayıs'taki güzel anlarından biri" loading="lazy" decoding="async">
-          <span class="caption">Mayıs'taki en güzel zamanlarımızdan</span>
-        </button>
-        <button class="polaroid" type="button" data-full="assets/memory-05.webp" data-caption="Mayıs'taki en güzel zamanlarımızdan" aria-label="Fotoğrafı büyüt: Mayıs'taki en güzel zamanlarımızdan">
-          <img src="assets/memory-05.webp" alt="Kübra ve Sabir'in Mayıs'taki güzel anlarından biri" loading="lazy" decoding="async">
           <span class="caption">Mayıs'taki en güzel zamanlarımızdan</span>
         </button>
         <button class="polaroid" type="button" data-full="assets/memory-06.webp" data-caption="İlk sinemamız" aria-label="Fotoğrafı büyüt: İlk sinemamız">
@@ -664,19 +730,12 @@
       <article class="letter">
         <h2>Sabir'e</h2>
         <p>
-          Hayat bazen hiç beklemediğimiz insanları hiç beklemediğimiz zamanlarda
-          karşımıza çıkarıyor.
+          İlk mesajı ben atmıştım; iyi ki de atmışım. Yoksa ilk biramız,
+          Kuğulu Park'a ilk gidişimiz, ilk sinemamız ve Mayıs'taki güzel
+          anılarımız olmazdı. Fotoğraflara bakınca hepsi gözümün önüne geliyor.
+          Seninle daha çok anı biriktirmek istiyorum.
         </p>
-        <p>
-          Bizim hikâyemizin başlangıcı da <strong>16 Temmuz</strong> oldu.
-          Belki kocaman bir hikâyenin ilk cümlesi olduğunu o anda bilmiyorduk.
-          Ama şimdi geriye dönüp baktığımda, o günü iyi ki yaşamışız diyorum.
-        </p>
-        <p>
-          Birlikte daha nice güzel anı, daha nice kahkaha ve daha nice güzel gün
-          biriktirmek dileğiyle...
-        </p>
-        <p class="signoff">İyi ki varsın. ♡</p>
+        <p class="signoff">Seni çok seviyorum ama en çok ben seviyorum. ♡</p>
       </article>
     </section>
 
@@ -710,6 +769,23 @@
   </dialog>
 
   <script>
+    const counterStart = new Date("2024-07-15T00:00:00+03:00").getTime();
+    const elapsedDays = document.getElementById("elapsedDays");
+    const elapsedHours = document.getElementById("elapsedHours");
+    const elapsedMinutes = document.getElementById("elapsedMinutes");
+    const elapsedSeconds = document.getElementById("elapsedSeconds");
+
+    function updateCounter() {
+      const totalSeconds = Math.max(0, Math.floor((Date.now() - counterStart) / 1000));
+      elapsedDays.textContent = Math.floor(totalSeconds / 86400).toLocaleString("tr-TR");
+      elapsedHours.textContent = String(Math.floor((totalSeconds % 86400) / 3600)).padStart(2, "0");
+      elapsedMinutes.textContent = String(Math.floor((totalSeconds % 3600) / 60)).padStart(2, "0");
+      elapsedSeconds.textContent = String(totalSeconds % 60).padStart(2, "0");
+    }
+
+    updateCounter();
+    setInterval(updateCounter, 1000);
+
     const surpriseButton = document.getElementById("surpriseButton");
     const hiddenMessage = document.getElementById("hiddenMessage");
 
